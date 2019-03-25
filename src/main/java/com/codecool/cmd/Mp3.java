@@ -1,4 +1,9 @@
 package com.codecool.cmd;
 
 public class Mp3 extends Cd {
+
+    @Override
+    public void addTrack(Song song) {
+
+    }
 }
