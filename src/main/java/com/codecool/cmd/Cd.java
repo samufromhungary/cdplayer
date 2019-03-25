@@ -11,5 +11,5 @@ public abstract class Cd {
         return limit;
     }
 
-    public abstract void addTrack(Song song);
+    public abstract void addTrack(Song song) throws OutOfCapacityException;
 }
