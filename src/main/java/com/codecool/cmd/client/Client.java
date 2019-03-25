@@ -15,6 +15,5 @@ public class Client {
         throws MalformedURLException, RemoteException, NotBoundException {
 
         look_up = (RMIInterface) Naming.lookup("//localhost/MyServer");
-
     }
 }
