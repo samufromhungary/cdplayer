@@ -14,7 +14,6 @@ public class Player {
 
     public void setCd(Cd cd){
 
-
     }
 
     public void setWriter(Writer writer){
