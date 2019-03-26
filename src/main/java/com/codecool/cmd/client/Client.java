@@ -2,6 +2,7 @@ package com.codecool.cmd.client;
 
 import com.codecool.cmd.rmiInterface.RMIInterface;
 
+import javax.swing.*;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -15,5 +16,8 @@ public class Client {
         throws MalformedURLException, RemoteException, NotBoundException {
 
         look_up = (RMIInterface) Naming.lookup("//localhost/MyServer");
+
+        String response = look_up.getTrackList();
+        System.out.println(response);
     }
 }
