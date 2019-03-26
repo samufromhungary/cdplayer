@@ -21,4 +21,7 @@ public class Audio extends Cd {
     }
 
 
+
+    public Audio() {
+    }
 }

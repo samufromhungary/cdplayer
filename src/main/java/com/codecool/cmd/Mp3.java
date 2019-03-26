@@ -1,5 +1,7 @@
 package com.codecool.cmd;
 
+import java.util.List;
+
 public class Mp3 extends Cd {
 
     @Override
@@ -8,5 +10,9 @@ public class Mp3 extends Cd {
             throw new OutOfCapacityException("Cd out of capacity");
         }
         songs.add(song);
+    }
+
+    public Mp3(List<Song> songs) {
+        super(songs);
     }
 }

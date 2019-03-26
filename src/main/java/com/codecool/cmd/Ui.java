@@ -13,7 +13,8 @@ public class Ui {
     Song song2 = new Song("sunaszaft", 20);
     List<Song> probaSongs = new ArrayList<>();
 
-    Cd[] cdStrorage = new Cd[1];
+    Audio currentCd = new Audio();
+    Audio[] tempCd = new Audio[1];
 
     Scanner scanner = new Scanner(System.in);
 
@@ -21,12 +22,14 @@ public class Ui {
         probaSongs.add(song1);
         probaSongs.add(song2);
         Audio audio = new Audio(probaSongs);
+        tempCd[0] = currentCd;
         int menuOption = 0;
         int subChoice;
         do {
             System.out.println("Please select an option: ");
             System.out.println("1. Cd ");
             System.out.println("2. Spotify");
+            System.out.println("0. Exit");
             menuOption = getAnInteger();
             switch (menuOption) {
                 case 1:
@@ -42,14 +45,23 @@ public class Ui {
                         subChoice = getAnInteger();
                         switch(subChoice){
                             case 1:
-                                if(cdStrorage == null){
+                                if(tempCd[0].equals(currentCd)){
+                                    System.out.println("Cd storage is empty");
+                                }else {
+                                    System.out.println("Playing.....");
+                                    System.out.println(tempCd[0].getSongs().get(1).getTitle());
+                                }
+                                screenStopper();
+
+
                                 break;
                             case 2:
 
                                 break;
                             case 3:
-                                cdStrorage[0] = audio;
+                                tempCd[0] = audio;
                                 System.out.println("proba audio cd added.");
+                                screenStopper();
 
                                 break;
                         }
@@ -98,6 +110,12 @@ public class Ui {
                 System.out.print("Give a valid number");
             }
         }
+    }
+
+    public void screenStopper() {
+        System.out.println("Press ENTER to go back");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
     }
 
     public static void main(String[] args) {

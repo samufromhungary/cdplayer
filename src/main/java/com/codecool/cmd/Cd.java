@@ -16,4 +16,11 @@ public abstract class Cd {
     public Cd(List<Song> songs) {
         this.songs = songs;
     }
+
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public Cd() {
+    }
 }
