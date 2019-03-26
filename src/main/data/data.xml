@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 <songs>
-    <song title="a" lenght="100"/>
-    <song title="b" lenght="200"/>
-    <song title="c" lenght="300"/>
-    <song title="d" lenght="50"/>
-    <song title="e" lenght="60"/>
-    <song title="f" lenght="70"/>
-    <song title="g" lenght="80"/>
+    <song title="Rostás Szabika: Vettem a piacon" length="176"/>
+    <song title="Miskolci Rap : Boti TV" length="194"/>
+    <song title="DJ Tőtöttcigi: Csendes Óceán felhangosítós Mix" length="3400"/>
+    <song title="Gruppen Family: Áll a faszom" length="185"/>
+    <song title="Idegbohóc: Halálpálca" length="230"/>
+    <song title="Cetli: Vallomás" length="72"/>
 </songs>
