@@ -8,24 +8,12 @@ public class Ui {
     Scanner scanner = new Scanner(System.in);
 
     public void run() {
-
-        int menuOption;
+        int menuOption = 0;
         do {
-            while (true) {
-
-                menuPrinter(new String[]{
-                    "CD mode",
-                    "Spotify mode"
-                });
-                System.out.print("Please select an option: ");
-                try {
-                    menuOption = Integer.parseInt(getUserInput());
-                    break;
-                } catch (NumberFormatException ne) {
-                    System.out.println("Invalid input. Please try again!");
-                    continue;
-                }
-            }
+            System.out.println("Please select an option: ");
+            System.out.println("1. Cd ");
+            System.out.println("2. Spotify");
+            menuOption = getAnInteger();
             switch (menuOption) {
                 case 1:
                     int subChoice;
@@ -38,15 +26,15 @@ public class Ui {
                         System.out.println("5. Show information");
                         System.out.println("0. Back");
                         subChoice = getAnInteger();
-                    }while(subChoice != 0);
+                    } while (subChoice != 0);
                     break;
                 case 2:
 
                     break;
-            }
-        }
-        while (menuOption != 0);
 
+            }
+
+        } while (menuOption != 0);
     }
 
     private void menuPrinter(String[] options) {
@@ -73,5 +61,10 @@ public class Ui {
                 System.out.print("Give a valid number");
             }
         }
+    }
+
+    public static void main(String[] args) {
+        Ui ui = new Ui();
+        ui.run();
     }
 }
