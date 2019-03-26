@@ -1,6 +1,12 @@
 package com.codecool.cmd;
 
+import java.util.List;
+
 public class Audio extends Cd {
+
+    public Audio(List<Song> songs) {
+        super(songs);
+    }
 
     @Override
     public void addTrack(Song song) throws OutOfCapacityException {
@@ -13,4 +19,6 @@ public class Audio extends Cd {
         }
         songs.add(song);
     }
+
+
 }

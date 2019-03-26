@@ -1,16 +1,26 @@
 package com.codecool.cmd;
 
+import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Ui {
 
     Player player = new Player();
+    Song song1 = new Song("picsafej", 15);
+    Song song2 = new Song("sunaszaft", 20);
+    List<Song> probaSongs = new ArrayList<>();
+
     Cd[] cdStrorage = new Cd[1];
 
     Scanner scanner = new Scanner(System.in);
 
     public void run() {
+        probaSongs.add(song1);
+        probaSongs.add(song2);
+        Audio audio = new Audio(probaSongs);
         int menuOption = 0;
         int subChoice;
         do {
@@ -32,13 +42,15 @@ public class Ui {
                         subChoice = getAnInteger();
                         switch(subChoice){
                             case 1:
-
+                                if(cdStrorage == null){
                                 break;
                             case 2:
 
                                 break;
                             case 3:
-                                player.setCd();
+                                cdStrorage[0] = audio;
+                                System.out.println("proba audio cd added.");
+
                                 break;
                         }
                     } while (subChoice != 0);
