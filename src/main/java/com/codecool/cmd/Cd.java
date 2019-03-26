@@ -12,4 +12,8 @@ public abstract class Cd {
     }
 
     public abstract void addTrack(Song song) throws OutOfCapacityException;
+
+    public Cd(List<Song> songs) {
+        this.songs = songs;
+    }
 }
