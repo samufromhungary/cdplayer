@@ -45,7 +45,7 @@ public class Server extends UnicastRemoteObject implements RMIInterface {
 
                     Element eElement = (Element) nNode;
 
-                    Song song = new Song(eElement.getAttribute("title"), Integer.valueOf(eElement.getAttribute("lenght")));
+                    Song song = new Song(eElement.getAttribute("title"), Integer.valueOf(eElement.getAttribute("length")));
                     spotiftyTrackList.add(song);
                 }
 

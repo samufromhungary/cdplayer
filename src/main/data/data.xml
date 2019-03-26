@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <songs>
-    <song title="a" lenght="100"/>
-    <song title="b" lenght="200"/>
-    <song title="c" lenght="300"/>
-    <song title="d" lenght="50"/>
-    <song title="e" lenght="60"/>
-    <song title="f" lenght="70"/>
-    <song title="g" lenght="80"/>
+    <song title="a" length="100"/>
+    <song title="b" length="200"/>
+    <song title="c" length="300"/>
+    <song title="d" length="50"/>
+    <song title="e" length="60"/>
+    <song title="f" length="70"/>
+    <song title="g" length="80"/>
 </songs>
