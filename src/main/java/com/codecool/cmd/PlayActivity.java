@@ -13,4 +13,5 @@ public class PlayActivity implements Activity {
     public void activate() {
         player.start(audioCd.getSongs().get(0).getTitle());
     }
+
 }
