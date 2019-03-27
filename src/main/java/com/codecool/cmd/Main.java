@@ -9,7 +9,6 @@ public class Main {
         Menu menu = new Menu();
         menu.addItem(new MenuItem("play", new PlayActivity(null)));
 
-
         menu.show(); // basic menu
     }
 }
