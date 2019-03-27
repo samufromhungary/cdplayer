@@ -10,6 +10,10 @@ import java.rmi.RemoteException;
 
 public class Client {
 
+    public Client(){
+
+    }
+
     private static RMIInterface look_up;
 
     public static void main(String[] args)

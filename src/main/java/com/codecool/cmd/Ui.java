@@ -1,5 +1,7 @@
 package com.codecool.cmd;
 
+
+
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -9,8 +11,8 @@ import java.util.Scanner;
 public class Ui {
 
     Player player = new Player();
-    Song song1 = new Song("picsafej", 15);
-    Song song2 = new Song("sunaszaft", 20);
+    AudioSong song1 = new AudioSong("picsafej", 15);
+    AudioSong song2 = new AudioSong("sunaszaft", 20);
     List<Song> probaSongs = new ArrayList<>();
 
     Audio currentCd = new Audio();
@@ -48,8 +50,14 @@ public class Ui {
                                 if(tempCd[0].equals(currentCd)){
                                     System.out.println("Cd storage is empty");
                                 }else {
-                                    System.out.println("Playing.....");
-                                    System.out.println(tempCd[0].getSongs().get(1).getTitle());
+                                    if(tempCd[0].getSongs().get(0) instanceof AudioSong){
+                                        AudioSong a = (AudioSong) tempCd[0].getSongs().get(0);
+                                        System.out.println("Playing.....");
+                                        System.out.println(a.getTitle());
+                                        System.out.println(a.getSamplingFrequency());
+
+                                    }
+
                                 }
                                 screenStopper();
 
@@ -78,6 +86,10 @@ public class Ui {
                         System.out.println("5. Show information");
                         System.out.println("0. Back");
                         subChoice = getAnInteger();
+                        switch (subChoice){
+                            case 1:
+                                System.out.println();
+                        }
                     } while (subChoice != 0);
                     break;
 
