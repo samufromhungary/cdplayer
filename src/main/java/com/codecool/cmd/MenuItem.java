@@ -17,4 +17,11 @@ public class MenuItem {
         this.activity = activity;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public Activity getActivity() {
+        return activity;
+    }
 }

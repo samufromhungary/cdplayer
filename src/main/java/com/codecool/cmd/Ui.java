@@ -72,6 +72,10 @@ public class Ui {
                                 screenStopper();
 
                                 break;
+                            case 4:
+                                break;
+                            case 5:
+
                         }
                     } while (subChoice != 0);
                     break;
