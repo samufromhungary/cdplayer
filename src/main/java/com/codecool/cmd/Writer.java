@@ -1,12 +1,10 @@
 package com.codecool.cmd;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public abstract class Writer {
 
-    public Writer(){
-
-    }
 
     public void writemsg(String msg){
         System.out.println(msg);
@@ -20,6 +18,5 @@ public abstract class Writer {
         System.out.println("Playing " + title + "...");
     }
 
-    public void randomAds(){
-    }
+    public void randomAds(){}
 }
