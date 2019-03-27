@@ -7,17 +7,8 @@ public class AudioSong extends Song {
 
     private float samplingFrequency;
 
-
-
     public AudioSong(String title, int length) {
         super(title, length);
-        Random rnd = new Random();
-        boolean freq1 = rnd.nextBoolean();
-        if(freq1){
-            this.samplingFrequency = 44;
-        }else{
-            this.samplingFrequency = 46;
-        }
     }
 
     public float getSamplingFrequency() {

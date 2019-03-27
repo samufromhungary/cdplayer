@@ -6,6 +6,7 @@ public class Player {
 
     private List<MenuItem> items;
     private List<Writer> writers;
+    ConsoleWriter consoleWriter = new ConsoleWriter();
 
 
     public void setMode(PlayerMode mode){
@@ -20,7 +21,9 @@ public class Player {
 
     }
 
-    public void start(){}
+    public void start(String title){ //console: title + playing + ...
+        consoleWriter.whatsPlaying(title);
+    }
 
     public void stop(){}
 

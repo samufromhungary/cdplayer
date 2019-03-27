@@ -4,8 +4,10 @@ import java.util.List;
 
 public class Audio extends Cd {
 
+    XMLHandler xmlHandler = new XMLHandler();
+
     public Audio(List<Song> songs) {
-        super(songs);
+        this.songs = xmlHandler.readToObjects();
     }
 
     @Override
@@ -19,8 +21,6 @@ public class Audio extends Cd {
         }
         songs.add(song);
     }
-
-
 
     public Audio() {
     }

@@ -26,7 +26,7 @@ public class XMLHandler {
 
             doc.getDocumentElement().normalize();
 
-            NodeList nList = doc.getElementsByTagName("Card");
+            NodeList nList = doc.getElementsByTagName("song");
 
             for (int i = 0; i < nList.getLength(); i++) {
 

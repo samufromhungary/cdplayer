@@ -3,6 +3,7 @@ package com.codecool.cmd;
 public class PlayActivity implements Activity {
 
     Player player;
+    Audio audioCd = new Audio();
 
     public PlayActivity(Player player){
         this.player = player;
@@ -10,7 +11,6 @@ public class PlayActivity implements Activity {
 
     @Override
     public void activate() {
-        player.start();
-
+        player.start(audioCd.getSongs().get(0).getTitle());
     }
 }
