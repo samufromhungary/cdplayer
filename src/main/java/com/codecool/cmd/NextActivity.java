@@ -4,20 +4,25 @@ import java.util.List;
 
 public class NextActivity implements Activity {
 
-    private Song currentSong;
     private List<Song> songs;
-    Audio audioCd = new Audio(songs);
-    Player player = new Player();
+    private Player player;
 
-    public NextActivity(Song currentSong, List<Song> songs) {
-        this.currentSong = currentSong;
-        this.songs = audioCd.getSongs();
+    public NextActivity(List<Song> songs, Player player) {
+        this.player = player;
+    }
+
+    private int getIndexOfCurrent(Song currentSong) {
+        int currentIndex = 0;
+        for(Song song : songs) {
+            if(song.getTitle().equals(currentSong.getTitle())) {
+                currentIndex = songs.indexOf(song);
+            }
+        }
+        return currentIndex;
     }
 
     @Override
     public void activate() { // kiirjuk az átállított current song title-jét
-
-        player.start(player.next(songs.indexOf(currentSong)).getTitle(), songs);
-
+        player.next();
     }
 }

@@ -10,6 +10,17 @@ public class Audio extends Cd {
         this.songs = songs;
     }
 
+
+    public int getIndexOfCurrent(Song currentSong) {
+        int currentIndex = 0;
+        for(Song song : songs) {
+            if(song.getTitle().equals(currentSong.getTitle())) {
+                currentIndex = songs.indexOf(song);
+            }
+        }
+        return currentIndex;
+    }
+
     @Override
     public void addTrack(Song song) throws OutOfCapacityException {
         float length = 0;

@@ -1,53 +1,80 @@
 package com.codecool.cmd;
 
-import java.sql.SQLOutput;
+import com.codecool.cmd.rmiInterface.RMIInterface;
+
+import java.rmi.RemoteException;
 import java.util.List;
 
 public class Player {
 
-    private List<MenuItem> items;
-    private List<Writer> writers;
-    ConsoleWriter consoleWriter = new ConsoleWriter();
+    private boolean playing;
+    private Writer writer;
+    private RMIInterface spotifyServer;
     private Song currentSong;
-    private List<Song> songs;
-    Audio audioCd = new Audio(songs);
+    private int lastCdSongIndex;
+    private int lastSpotifyTrackIndex;
+    private PlayerMode mode = PlayerMode.CD;
+    private Cd cd;
 
+    public Player(Writer writer, RMIInterface spotifyServer) {
+        this.writer = writer;
+        this.spotifyServer = spotifyServer;
+    }
 
     public void setMode(PlayerMode mode){
-
+        this.mode = mode;
     }
 
     public void setCd(Cd cd){
-
+        if (playing) {
+            throw new IllegalStateException();
+        }
+        this.cd = cd;
     }
 
     public void setWriter(Writer writer){
-
+        this.writer = writer;
     }
 
-    public void start(String title, List<Song> songs){ //console: title + playing + ...
-        consoleWriter.whatsPlaying(title);
-        for (Song s : songs){
-            if (s.getTitle().equals(title)){
-                this.currentSong = s;
+    public void start() {
+        if (mode == PlayerMode.CD) {
+            if (cd == null) {
+                throw new IllegalStateException();
+            }
+            if (currentSong == null) {
+                currentSong = cd.getSongs().get(0);
+            }
+            writer.writemsg("Started playing: " + currentSong.getTitle());
+        } else {
+            try {
+                String trackList = spotifyServer.getTrackList();
+                currentSong = new Song("asdasd", -1);
+                writer.writemsg("playing that other shit");
+            } catch (RemoteException e) {
+                throw new IllegalStateException(e);
             }
         }
     }
 
     public void stop(){
-        if (currentSong.equals(null)){
-            System.out.println("No tracks playing");
-        }else {
-            currentSong = songs.get(0);
-            System.out.println("Stopped");
+        if (cd == null) {
+            return;
         }
 
+        if (currentSong == null) {
+            return;
+        }
+
+        currentSong = null;
+        writer.writemsg("Stopped playing.");
     }
 
-    public void show(){}
+    public void show(){
+        writer.writemsg("Playing currently: " + currentSong.getTitle());
+    }
 
     public Song prev(int i){
-        consoleWriter.writemsg("Changing to previous track");
+        writer.writemsg("Changing to previous track");
         if(i - 1 < 0){
             currentSong = songs.get(songs.size() - 1);
         }else{
@@ -56,15 +83,14 @@ public class Player {
         return currentSong;
     }
 
-    public Song next(int currentIndex){
+    public void next(){
 
-        consoleWriter.writemsg("Changing to next track");
+        writer.writemsg("Changing to next track");
         if(currentIndex + 1 > songs.size() - 1){
             currentSong = songs.get(0);
         }else{
             currentSong = songs.get(currentIndex + 1);
         }
-        return currentSong;
     }
 
 
