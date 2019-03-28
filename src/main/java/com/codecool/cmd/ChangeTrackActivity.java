@@ -15,14 +15,14 @@ public class ChangeTrackActivity implements Activity{
         this.songs = audioCd.getSongs();
     }
 
-    private int getIndexOfCurrent(Song tempSong) {
-        int i = 0;
+    private int getIndexOfCurrent(Song currentSong) {
+        int currentIndex = 0;
         for(Song song : songs) {
-            if(song.getTitle().equals(tempSong.getTitle())) {
-                i = songs.indexOf(song);
+            if(song.getTitle().equals(currentSong.getTitle())) {
+                currentIndex = songs.indexOf(song);
             }
         }
-        return i;
+        return currentIndex;
     }
 
     @Override

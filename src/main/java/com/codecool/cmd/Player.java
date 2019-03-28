@@ -57,16 +57,15 @@ public class Player {
         return currentSong;
     }
 
-    public Song next(int i){
+    public Song next(int currentIndex){
+
         consoleWriter.writemsg("Changing to next track");
-        if(i + 1 > songs.size() - 1){
+        if(currentIndex + 1 > songs.size() - 1){
             currentSong = songs.get(0);
         }else{
-            currentSong = songs.get(i + 1);
+            currentSong = songs.get(currentIndex + 1);
         }
         return currentSong;
-
-
     }
 
 
