@@ -1,5 +1,6 @@
 package com.codecool.cmd;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class Player {
@@ -10,7 +11,7 @@ public class Player {
     private Song currentSong;
     private List<Song> songs;
     Audio audioCd = new Audio();
-    ChangeTrackActivity activity = new ChangeTrackActivity();
+    ChangeTrackActivity activity = new ChangeTrackActivity(currentSong);
 
 
     public void setMode(PlayerMode mode){
@@ -27,9 +28,22 @@ public class Player {
 
     public void start(String title){ //console: title + playing + ...
         consoleWriter.whatsPlaying(title);
+        for (Song s : songs){
+            if (s.getTitle().equals(title)){
+                this.currentSong = s;
+            }
+        }
     }
 
-    public void stop(){}
+    public void stop(){
+        if (currentSong.equals(null)){
+            System.out.println("No tracks playing");
+        }else {
+            currentSong = songs.get(0);
+            System.out.println("Stopped");
+        }
+
+    }
 
     public void show(){}
 
