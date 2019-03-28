@@ -27,7 +27,7 @@ public class ChangeTrackActivity implements Activity{
 
     @Override
     public void activate() {
-
+        player.next(audioCd.getSongs().get(i).getTitle());
 
 
     }
