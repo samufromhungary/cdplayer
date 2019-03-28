@@ -1,3 +1,4 @@
+/*
 package com.codecool.cmd;
 
 import java.util.List;
@@ -32,3 +33,4 @@ public class ChangeTrackActivity implements Activity{
 
     }
 }
+*/

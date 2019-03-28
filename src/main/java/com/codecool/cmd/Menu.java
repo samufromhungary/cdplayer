@@ -28,7 +28,7 @@ public class Menu {
     }
 
     public void show(){
-        System.out.print(title + "\n\n");
+        //System.out.print(title + "\n\n");
         int i = 1;
         int answer = -1;
         while(true) {

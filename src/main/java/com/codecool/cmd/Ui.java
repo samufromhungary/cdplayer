@@ -1,3 +1,4 @@
+/*
 package com.codecool.cmd;
 
 
@@ -15,7 +16,6 @@ public class Ui {
     AudioSong song2 = new AudioSong("sunaszaft", 20);
     List<Song> probaSongs = new ArrayList<>();
 
-    Audio currentCd = new Audio();
     Audio[] tempCd = new Audio[1];
 
     Scanner scanner = new Scanner(System.in);
@@ -139,3 +139,4 @@ public class Ui {
         ui.run();
     }
 }
+*/

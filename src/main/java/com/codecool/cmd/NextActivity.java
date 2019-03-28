@@ -6,7 +6,7 @@ public class NextActivity implements Activity {
 
     private Song currentSong;
     private List<Song> songs;
-    Audio audioCd = new Audio();
+    Audio audioCd = new Audio(songs);
     Player player = new Player();
 
     public NextActivity(Song currentSong, List<Song> songs) {
@@ -17,7 +17,7 @@ public class NextActivity implements Activity {
     @Override
     public void activate() { // kiirjuk az átállított current song title-jét
 
-        player.start(player.next(songs.indexOf(currentSong)).getTitle());
+        player.start(player.next(songs.indexOf(currentSong)).getTitle(), songs);
 
     }
 }

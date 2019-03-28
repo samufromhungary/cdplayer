@@ -7,7 +7,7 @@ public class Audio extends Cd {
     XMLHandler xmlHandler = new XMLHandler();
 
     public Audio(List<Song> songs) {
-        this.songs = xmlHandler.readToObjects();
+        this.songs = songs;
     }
 
     @Override
@@ -20,8 +20,5 @@ public class Audio extends Cd {
             throw new OutOfCapacityException("Cd out of capacity");
         }
         songs.add(song);
-    }
-
-    public Audio() {
     }
 }

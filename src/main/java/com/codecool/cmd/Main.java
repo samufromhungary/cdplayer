@@ -7,7 +7,8 @@ public class Main {
         Player player = new Player();
 
         Menu menu = new Menu();
-        menu.addItem(new MenuItem("play", new PlayActivity(null)));
+        menu.addItem(new MenuItem("play", new PlayActivity(player)));
+        //menu.addItem(new MenuItem("next track", new NextActivity()));
 
         menu.show(); // basic menu
     }

@@ -1,9 +1,12 @@
 package com.codecool.cmd;
 
+import javax.sql.rowset.spi.XmlReader;
+
 public class PlayActivity implements Activity {
 
     Player player;
-    Audio audioCd = new Audio();
+    XMLHandler xml = new XMLHandler();
+    Audio audioCd = new Audio(xml.readToObjects());
 
     public PlayActivity(Player player){
         this.player = player;
@@ -11,7 +14,6 @@ public class PlayActivity implements Activity {
 
     @Override
     public void activate() {
-        player.start(audioCd.getSongs().get(0).getTitle());
+        player.start(audioCd.getSongs().get(0).getTitle(), audioCd.getSongs());
     }
-
 }

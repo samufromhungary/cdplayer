@@ -10,8 +10,7 @@ public class Player {
     ConsoleWriter consoleWriter = new ConsoleWriter();
     private Song currentSong;
     private List<Song> songs;
-    Audio audioCd = new Audio();
-    ChangeTrackActivity activity = new ChangeTrackActivity(currentSong);
+    Audio audioCd = new Audio(songs);
 
 
     public void setMode(PlayerMode mode){
@@ -26,7 +25,7 @@ public class Player {
 
     }
 
-    public void start(String title){ //console: title + playing + ...
+    public void start(String title, List<Song> songs){ //console: title + playing + ...
         consoleWriter.whatsPlaying(title);
         for (Song s : songs){
             if (s.getTitle().equals(title)){
