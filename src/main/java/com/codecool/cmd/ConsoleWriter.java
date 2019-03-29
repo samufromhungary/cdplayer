@@ -21,6 +21,4 @@ public class ConsoleWriter extends Writer {
     public void writeinfo(String title, String length){
         
     }
-
-
 }

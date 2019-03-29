@@ -16,8 +16,7 @@ public class Player {
     private PlayerMode mode = PlayerMode.CD;
     private Cd cd;
 
-    public Player(Writer writer, RMIInterface spotifyServer) {
-        this.writer = writer;
+    public Player(RMIInterface spotifyServer) {
         this.spotifyServer = spotifyServer;
     }
 
@@ -36,7 +35,11 @@ public class Player {
         this.writer = writer;
     }
 
-    public void start() {
+    public void addCd() {
+
+    }
+
+    public void play() {
         if (mode == PlayerMode.CD) {
             if (cd == null) {
                 throw new IllegalStateException();
@@ -57,41 +60,44 @@ public class Player {
     }
 
     public void stop(){
-        if (cd == null) {
-            return;
-        }
+        if (mode == PlayerMode.CD) {
+            if (cd == null) {
+                return;
+            }
 
-        if (currentSong == null) {
-            return;
-        }
+            if (currentSong == null) {
+                return;
+            }
 
-        currentSong = null;
-        writer.writemsg("Stopped playing.");
+            currentSong = null;
+            writer.writemsg("Stopped playing.");
+        }
     }
 
     public void show(){
         writer.writemsg("Playing currently: " + currentSong.getTitle());
     }
 
-    public Song prev(int i){
+    public void prev(){
+        if(cd == null) {
+            return;
+        }
+        if(currentSong == null) {
+            return;
+        }
         writer.writemsg("Changing to previous track");
-        if(i - 1 < 0){
-            currentSong = songs.get(songs.size() - 1);
-        }else{
-            currentSong = songs.get(i - 1);
-        }
-        return currentSong;
+        currentSong = cd.getSongs().get(lastCdSongIndex - 1);
+
     }
 
-    public void next(){
-
+    public void next() {
+        if(cd == null) {
+            return;
+        }
+        if(currentSong == null) {
+            return;
+        }
         writer.writemsg("Changing to next track");
-        if(currentIndex + 1 > songs.size() - 1){
-            currentSong = songs.get(0);
-        }else{
-            currentSong = songs.get(currentIndex + 1);
-        }
+        currentSong = cd.getSongs().get(lastCdSongIndex + 1);
     }
-
-
 }

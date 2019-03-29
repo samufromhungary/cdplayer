@@ -33,7 +33,7 @@ public class Menu {
         int answer = -1;
         while(true) {
             for (MenuItem option : this.items) {
-                System.out.println(i + option.getTitle());
+                System.out.println(i + ". " + option.getTitle());
                 i++;
             }
             answer = getAnInteger();
